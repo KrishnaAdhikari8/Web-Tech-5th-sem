@@ -36,7 +36,6 @@ let numbers = [1, 2, 3, 4, 5];
 function greet() {
     return "Hello, Welcome!";
 }
-//Output Section
 
 console.log("Number:", num1, num2);
 console.log("String:", name);
@@ -48,18 +47,3 @@ console.log("Symbol:", uniqueId);
 console.log("Object:", person);
 console.log("Array:", numbers);
 console.log("Function:", greet());
-
-//Type Checking using typeof
-
-console.log("\n--- Type Checking ---");
-
-console.log("num1:", typeof num1);
-console.log("name:", typeof name);
-console.log("isActive:", typeof isActive);
-console.log("x:", typeof x);
-console.log("y:", typeof y);        // special case (object)
-console.log("bigNumber:", typeof bigNumber);
-console.log("uniqueId:", typeof uniqueId);
-console.log("person:", typeof person);
-console.log("numbers:", typeof numbers);
-console.log("greet:", typeof greet);
