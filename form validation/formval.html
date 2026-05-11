@@ -1,0 +1,81 @@
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
+
+<form name="myform" onsubmit="return validation()">
+
+    Username:
+    <input type="text" id="name"><br><br>
+
+    Number:
+    <input type="text" id="number"><br><br>
+
+    Gender:
+    <input type="radio" name="gender" id="male"> Male
+
+    <input type="radio" name="gender" id="female"> Female
+    <br><br>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+<script type="text/javascript">
+
+function validation()
+{
+    // Username Validation
+    var name = document.getElementById("name").value;
+
+    if(name == "")
+    {
+        alert("Enter name");
+        return false;
+    }
+
+    var condition = /^[A-Za-z ]+$/;
+
+    var result = name.match(condition);
+
+    if(result == null)
+    {
+        alert("Name format not valid");
+        return false;
+    }
+
+
+    // Number Validation
+    var number = document.getElementById("number").value;
+
+    if(number == "")
+    {
+        alert("Enter number");
+        return false;
+    }
+
+    else if(isNaN(number))
+    {
+        alert("Entered value is not a number");
+        return false;
+    }
+
+
+    // Radio Button Validation
+    var male = document.getElementById("male").checked;
+    var female = document.getElementById("female").checked;
+
+    if(male == false && female == false)
+    {
+        alert("Gender needs to be selected");
+        return false;
+    }
+
+    return true;
+}
+
+</script>
+
+</body>
+</html>
