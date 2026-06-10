@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prompt Box Example</title>
+    <script>
+        function getName() {
+            var name = prompt("Enter your name:", "CSIT Student");
+            document.getElementById("msg").innerHTML = "Hello " + name;
+        }
+    </script>
+</head>
+<body>
+
+<h2>Prompt Box Demo</h2>
+
+<button onkeydown="getName()"> click me</button>
+
+<p id="msg"></p>
+
+</body>
+</html>
