@@ -1,3 +1,75 @@
 <!-- Write HTML script for creating a form containing textbox for username, password field for password, and checkbox for Education 
 Fields. Write a JavaScript function for the validation of the form for all of the fields as required. In addition, length of 
 username should be at least 4, the password should start with digit and end with $. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <script>
+        function validateForm() {
+            let username = document.forms["myForm"]["username"].value;
+            let password = document.forms["myForm"]["password"].value;
+
+            // Username validation
+            if (username == "") {
+                alert("Username is required");
+                return false;
+            }
+
+            if (username.length < 4) {
+                alert("Username must be at least 4 characters");
+                return false;
+            }
+
+            // Password validation
+            if (password == "") {
+                alert("Password is required");
+                return false;
+            }
+
+            if (!/^\d.*\$$/.test(password)) {
+                alert("Password must start with a digit and end with $");
+                return false;
+            }
+
+            // Education validation
+            let education = document.querySelectorAll(
+                'input[name="education"]:checked'
+            );
+
+            if (education.length == 0) {
+                alert("Select at least one Education Field");
+                return false;
+            }
+
+            alert("Form Submitted Successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form name="myForm" onsubmit="return validateForm()">
+
+    Username:
+    <input type="text" name="username"><br><br>
+
+    Password:
+    <input type="password" name="password"><br><br>
+
+    Education Fields:<br>
+    <input type="checkbox" name="education" value="SEE"> SEE
+    <input type="checkbox" name="education" value="+2"> +2
+    <input type="checkbox" name="education" value="Bachelor"> Bachelor
+    <input type="checkbox" name="education" value="Master"> Master
+    <br><br>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>
