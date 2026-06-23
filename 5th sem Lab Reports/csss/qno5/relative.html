@@ -1,0 +1,41 @@
+<!-- What is CSS position? Illustrate relative and absolute position.
+
+The position property in CSS specifies how an element is positioned on a web page.
+Common values of the position property are:
+static (default)
+relative
+absolute
+fixed
+sticky
+
+1. Relative Position
+An element with position: relative is positioned relative to its normal position in the document flow.
+The element still occupies its original space.
+You can move it using top, right, bottom, and left.
+
+
+2.Absolute Position
+An element with position: absolute is positioned relative to its nearest positioned ancestor (an ancestor with relative, absolute, fixed, or sticky).
+It is removed from the normal document flow.
+Other elements behave as if it does not exist. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    position: relative;
+    left: 50px;
+    top: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">Relative Box</div>
+
+</body>
+</html>
