@@ -1,0 +1,30 @@
+<!-- Show the use of setTimeout( ) and setInterval( ) functions. 
+Definition
+setTimeout(): Executes a function once after a specified time delay.
+setInterval(): Executes a function repeatedly at specified time intervals. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>setTimeout and setInterval Example</title>
+</head>
+<body>
+    <h2>JavaScript Timing Functions</h2>
+    <p id="timeout"></p>
+    <p id="interval"></p>
+    <script>
+        // setTimeout() - runs once after 3 seconds
+        setTimeout(function() {
+            document.getElementById("timeout").innerHTML =
+            "Message displayed after 3 seconds using setTimeout()";
+        }, 3000);
+        // setInterval() - runs every 1 second
+        let count = 0;
+        setInterval(function() {
+            count++;
+            document.getElementById("interval").innerHTML =
+            "Counter: " + count;
+        }, 1000);
+    </script>
+</body>
+</html>
