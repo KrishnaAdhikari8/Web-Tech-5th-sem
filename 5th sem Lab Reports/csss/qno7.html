@@ -1,0 +1,96 @@
+<!-- What is media query? Show its use in flex-box and grid layout
+
+A Media Query is a CSS technique used to apply different styles to a webpage based on the device's screen size, resolution, or orientation.
+It helps create responsive web designs that work well on desktops, tablets, and mobile phones. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query with Flexbox and Grid</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h2 {
+            margin: 20px 0 10px;
+        }
+
+        /* Flexbox Layout */
+        .flex-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .flex-item {
+            flex: 1;
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #000;
+        }
+
+        /* Grid Layout */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .grid-item {
+            background-color: lightcoral;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #000;
+        }
+
+        /* Media Query */
+        @media screen and (max-width: 600px) {
+
+            /* Flexbox becomes vertical */
+            .flex-container {
+                flex-direction: column;
+            }
+
+            /* Grid becomes single column */
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Media Query Example</h1>
+
+    <h2>Flexbox Layout</h2>
+    <div class="flex-container">
+        <div class="flex-item">Box 1</div>
+        <div class="flex-item">Box 2</div>
+        <div class="flex-item">Box 3</div>
+    </div>
+
+    <h2>Grid Layout</h2>
+    <div class="grid-container">
+        <div class="grid-item">Item 1</div>
+        <div class="grid-item">Item 2</div>
+        <div class="grid-item">Item 3</div>
+        <div class="grid-item">Item 4</div>
+        <div class="grid-item">Item 5</div>
+        <div class="grid-item">Item 6</div>
+    </div>
+
+</body>
+</html>
