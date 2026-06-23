@@ -1,0 +1,45 @@
+<!-- Use jQuery to demonstrate append( ) and prepend( ) functions.
+ 
+jQuery, append() and prepend() are used to add content inside an HTML element.
+append() → adds content at the end (inside last child)
+prepend() → adds content at the beginning (inside first child)  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery append() and prepend()</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // append() → adds content at the end
+      $("#appendBtn").click(function () {
+        $("#box").append("<p>Appended Text (at end)</p>");
+      });
+
+      // prepend() → adds content at the beginning
+      $("#prependBtn").click(function () {
+        $("#box").prepend("<p>Prepended Text (at start)</p>");
+      });
+    });
+  </script>
+  <style>
+    #box {
+      border: 2px solid black;
+      padding: 10px;
+      width: 300px;
+      min-height: 100px;
+    }
+    button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>jQuery append() and prepend() Demo</h2>
+  <button id="appendBtn">Append Text</button>
+  <button id="prependBtn">Prepend Text</button>
+  <div id="box">
+    <p>Initial Content</p>
+  </div>
+</body>
+</html>
