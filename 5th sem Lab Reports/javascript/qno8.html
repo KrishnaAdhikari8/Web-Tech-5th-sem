@@ -1,0 +1,37 @@
+<!-- What is Regular Expression? Show its use while validating form data. 
+Definition
+A Regular Expression (RegEx) is a sequence of characters that defines a search pattern. 
+It is used to validate user input such as email addresses, phone numbers, passwords, etc.
+Common Uses of RegEx
+Email validation
+Phone number validation
+Password validation
+Username validation -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RegEx Validation</title>
+</head>
+<body>
+    <h2>Email Validation Form</h2>
+    <input type="text" id="email" placeholder="Enter Email">
+    <button onclick="validateEmail()">Validate</button>
+    <p id="result"></p>
+    <script>
+        function validateEmail() {
+            let email = document.getElementById("email").value;
+            // Regular Expression for Email Validation
+            let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(pattern.test(email)) {
+                document.getElementById("result").innerHTML =
+                "Valid Email Address";
+            }
+            else {
+                document.getElementById("result").innerHTML =
+                "Invalid Email Address";
+            }
+        }
+    </script>
+</body>
+</html>
