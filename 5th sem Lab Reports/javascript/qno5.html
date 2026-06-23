@@ -1,0 +1,41 @@
+<!-- Show use of events with their proper actions [onclick, onmouseover, onload, etc].
+Events are actions that occur in the browser, such as clicking a button, moving the mouse, or loading a page. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Events</title>
+    <script>
+        // onload event
+        function pageLoaded() {
+            alert("Page Loaded Successfully!");
+        }
+        // onclick event
+        function showMessage() {
+            document.getElementById("msg").innerHTML =
+            "Button Clicked!";
+        }
+        // onmouseover event
+        function changeColor() {
+            document.getElementById("hoverText").style.color = "red";
+        }
+        // onmouseout event
+        function resetColor() {
+            document.getElementById("hoverText").style.color = "black";
+        }
+    </script>
+</head>
+<body onload="pageLoaded()">
+    <h2>JavaScript Events Example</h2>
+    <!-- onclick -->
+    <button onclick="showMessage()">Click Me</button>
+    <p id="msg"></p>
+    <br>
+    <!-- onmouseover and onmouseout -->
+    <p id="hoverText"
+       onmouseover="changeColor()"
+       onmouseout="resetColor()">
+       Move Mouse Over Me
+    </p>
+</body>
+</html>
