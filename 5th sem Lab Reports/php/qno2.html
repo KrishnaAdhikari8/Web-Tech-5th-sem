@@ -1,0 +1,36 @@
+<!-- Use GET and POST methods to collect form data. -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GET and POST Example</title>
+</head>
+<body>
+<h2>GET Method Form</h2>
+<form method="GET" action="">
+    Name: <input type="text" name="gname">
+    <input type="submit" value="Submit GET">
+</form>
+<?php
+// GET method handling
+if (isset($_GET['gname'])) {
+    $gname = $_GET['gname'];
+    echo "<h3>GET Output:</h3>";
+    echo "Hello, " . $gname;
+}
+?>
+<hr>
+<h2>POST Method Form</h2>
+<form method="POST" action="">
+    Name: <input type="text" name="pname">
+    <input type="submit" value="Submit POST">
+</form>
+<?php
+// POST method handling
+if (isset($_POST['pname'])) {
+    $pname = $_POST['pname'];
+    echo "<h3>POST Output:</h3>";
+    echo "Hello, " . $pname;
+}
+?>
+</body>
+</html>
