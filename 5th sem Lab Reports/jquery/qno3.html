@@ -1,0 +1,168 @@
+<!-- Q.Use jQuery to create plugins like: slider, lightbox, accordion, zoom and toast messages.
+Here's a single HTML file that demonstrates all five jQuery plugins (Slider, Lightbox, Accordion, Zoom, and Toast Message) together. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Plugins Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin:20px;
+        }
+        /* Slider */
+        #slider{
+            width:300px;
+            height:200px;
+            overflow:hidden;
+            margin-bottom:20px;
+        }
+        #slider img{
+            width:300px;
+            height:200px;
+            display:none;
+        }
+        /* Accordion */
+        .accordion h3{
+            background:#ddd;
+            padding:10px;
+            cursor:pointer;
+            margin:0;
+        }
+        .accordion div{
+            border:1px solid #ddd;
+            padding:10px;
+        }
+        /* Zoom */
+        #zoomImg{
+            width:250px;
+            transition:0.5s;
+        }
+        /* Toast */
+        .toast{
+            position:fixed;
+            bottom:20px;
+            right:20px;
+            background:#333;
+            color:white;
+            padding:10px 20px;
+            border-radius:5px;
+        }
+    </style>
+</head>
+<body>
+<h2>1. Slider Plugin</h2>
+<div id="slider">
+    <img src="https://picsum.photos/id/1015/300/200">
+    <img src="https://picsum.photos/id/1025/300/200">
+    <img src="https://picsum.photos/id/1035/300/200">
+</div>
+<hr>
+<h2>2. Lightbox Plugin</h2>
+<img src="https://picsum.photos/id/1040/200/150"
+     class="lightbox-img"
+     style="cursor:pointer;">
+<hr>
+<h2>3. Accordion Plugin</h2>
+<div class="accordion">
+    <h3>Section 1</h3>
+    <div>This is content of Section 1.</div>
+    <h3>Section 2</h3>
+    <div>This is content of Section 2.</div>
+    <h3>Section 3</h3>
+    <div>This is content of Section 3.</div>
+</div>
+<hr>
+<h2>4. Zoom Plugin</h2>
+<img src="https://picsum.photos/id/1050/250/180"
+     id="zoomImg">
+<hr>
+<h2>5. Toast Message Plugin</h2>
+<button id="showToast">Show Toast</button>
+<script>
+$(document).ready(function(){
+    /* ---------- Slider Plugin ---------- */
+    $.fn.simpleSlider = function(){
+        return this.each(function(){
+            let slides = $(this).children();
+            let index = 0;
+            slides.hide();
+            slides.eq(0).show();
+            setInterval(function(){
+                slides.eq(index).fadeOut();
+                index = (index + 1) % slides.length;
+                slides.eq(index).fadeIn();
+            },2000);
+        });
+    };
+    $("#slider").simpleSlider();
+    /* ---------- Lightbox Plugin ---------- */
+    $.fn.lightBox = function(){
+        this.click(function(){
+            let src = $(this).attr("src");
+            $("body").append(
+                '<div id="overlay">'+
+                '<img src="'+src+'" id="bigImg">'+
+                '</div>'
+            );
+            $("#overlay").css({
+                position:"fixed",
+                top:"0",
+                left:"0",
+                width:"100%",
+                height:"100%",
+                background:"rgba(0,0,0,0.8)",
+                textAlign:"center"
+            });
+            $("#bigImg").css({
+                maxWidth:"80%",
+                marginTop:"50px"
+            });
+            $("#overlay").click(function(){
+                $(this).remove();
+            });
+        });
+        return this;
+    };
+    $(".lightbox-img").lightBox();
+    /* ---------- Accordion Plugin ---------- */
+    $.fn.myAccordion = function(){
+        $(this).find("div").hide();
+        $(this).find("h3").click(function(){
+            $(this).next("div").slideToggle();
+        });
+        return this;
+    };
+    $(".accordion").myAccordion();
+    /* ---------- Zoom Plugin ---------- */
+    $.fn.imageZoom = function(){
+        this.hover(
+            function(){
+                $(this).css("transform","scale(1.5)");
+            },
+            function(){
+                $(this).css("transform","scale(1)");
+            }
+        );
+        return this;
+    };
+    $("#zoomImg").imageZoom();
+    /* ---------- Toast Plugin ---------- */
+    $.toast = function(message){
+        let toast =
+        $('<div class="toast">'+message+'</div>');
+        $("body").append(toast);
+        setTimeout(function(){
+            toast.fadeOut(function(){
+                $(this).remove();
+            });
+        },3000);
+    };
+    $("#showToast").click(function(){
+        $.toast("Data Saved Successfully!");
+    });
+});
+</script>
+</body>
+</html>
