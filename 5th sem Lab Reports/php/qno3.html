@@ -1,0 +1,41 @@
+<?php
+// Simulating separate files using variables
+
+$header = '
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Website</title>
+</head>
+<body>
+<h1>My Simple Website</h1>
+<hr>
+';
+
+$menu = '
+<a href="#">Home</a> |
+<a href="#">About</a>
+<hr>
+';
+
+$footer = '
+<hr>
+<p>© 2026 My Website. All rights reserved.</p>
+</body>
+</html>
+';
+?>
+
+<?php
+// USING "include" concept
+echo $header;
+echo $menu;
+?>
+
+<h2>Home Page</h2>
+<p>This page demonstrates include and require concept in a single file.</p>
+
+<?php
+// USING "require" concept
+echo $footer;
+?>
