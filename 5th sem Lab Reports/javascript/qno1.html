@@ -8,33 +8,34 @@ Validates form data.
 Manipulates HTML and CSS dynamically.
 Handles events such as clicks and keyboard input.
 Creates animations and dynamic content.
+-->
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Output Methods</title>
+</head>
+<body>
 
-How Can We Generate Output in JavaScript?
+    <h2>JavaScript Output Methods</h2>
 
-JavaScript provides several ways to display output:
-1. Using document.write()
-<script>
-document.write("Hello World!");
-</script>
-Output: Hello World!
+    <p id="demo"></p>
 
-2. Using alert()
-<script>
-alert("Hello World!");
-</script>
-Output: Displays a popup message box.
+    <script>
+        // 1. document.write()
+        document.write("<h3>1. document.write()</h3>");
+        document.write("Hello World!<br><br>");
 
-3. Using console.log()
-<script>
-console.log("Hello World!");
-</script>
-Output: Displays text in the browser's console.
+        // 2. alert()
+        alert("Hello World! from alert()");
 
-4. Using innerHTML
-<p id="demo"></p>
-<script>
-document.getElementById("demo").innerHTML = "Hello World!";
-</script>
+        // 3. console.log()
+        console.log("Hello World! from console.log()");
 
-Output: Hello World! appears inside the paragraph. -->
+        // 4. innerHTML
+        document.getElementById("demo").innerHTML =
+            "<h3>4. innerHTML</h3>Hello World! from innerHTML";
+    </script>
+
+</body>
+</html>
